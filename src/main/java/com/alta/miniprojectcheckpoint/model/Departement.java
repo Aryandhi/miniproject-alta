@@ -34,7 +34,7 @@ public class Departement {
     @Column(name = "updated_at")
     private Timestamp updatedAt;
 
-//    @JsonIgnore
-//    @OneToMany(mappedBy = "departement")
-//    private List<User> user;
+    @JsonIgnore
+    @OneToMany(mappedBy = "departement")
+    private List<Users> users;
 }

@@ -33,7 +33,7 @@ public class Role {
     @Column(name = "updated_at")
     private Timestamp updatedAt;
 
-//    @JsonIgnore
-//    @OneToMany(mappedBy = "role")
-//    private List<User> user;
+    @JsonIgnore
+    @OneToMany(mappedBy = "role")
+    private List<Users> users;
 }
