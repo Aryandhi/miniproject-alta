@@ -1,8 +1,6 @@
 package com.alta.miniprojectcheckpoint.service.impl;
 
-import com.alta.miniprojectcheckpoint.dto.DepartementRequest;
 import com.alta.miniprojectcheckpoint.dto.EmployeeRequest;
-import com.alta.miniprojectcheckpoint.dto.RoleRequest;
 import com.alta.miniprojectcheckpoint.exception.BadRequestException;
 import com.alta.miniprojectcheckpoint.exception.ResourceNotFound;
 import com.alta.miniprojectcheckpoint.model.Departement;
@@ -14,7 +12,6 @@ import com.alta.miniprojectcheckpoint.repository.RoleRepository;
 import com.alta.miniprojectcheckpoint.service.EmployeeService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -34,9 +31,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
     private RoleRepository roleRepository;
-
-    @Autowired
-    private ModelMapper mapper;
 
     // validasi
     @Override
@@ -62,21 +56,18 @@ public class EmployeeServiceImpl implements EmployeeService {
     //  public Employee createNewEmployee(EmployeeRequest employeeRequest)
     @Override
     public Employee createNewEmployee(EmployeeRequest employeeRequest) {
-//        Employee result = new Employee();
-//        result.setEmployeeName(employeeRequest.getEmployeeName());
-//        result.setEmail(employeeRequest.getEmail());
-//        result.setAddress(employeeRequest.getAddress());
-//        result.setNoTelp(employeeRequest.getNoTelp());
-//        return employeeRepository.save(result);
-        Employee employee = mapper.map(employeeRequest, Employee.class);
+        Employee result = new Employee();
         Optional<Departement> departement = departementRepository.findById(employeeRequest.getId_departement());
-        Optional<Role> role = roleRepository.findById(employeeRequest.getId_departement());
-        employee.setDepartement(departement.get());
-        employee.setRole(role.get());
-//        employee = employeeRepository.save(employee);
-//        log.info("Data telah disimpan");
-        return employeeRepository.save(employee);
+        Optional<Role> role = roleRepository.findById(employeeRequest.getId_role());
 
+        result.setEmployeeName(employeeRequest.getEmployeeName());
+        result.setEmail(employeeRequest.getEmail());
+        result.setAddress(employeeRequest.getAddress());
+        result.setNoTelp(employeeRequest.getNoTelp());
+        // reference column
+        result.setDepartement(departement.get());
+        result.setRole(role.get());
+        return employeeRepository.save(result);
     }
 
     @Override

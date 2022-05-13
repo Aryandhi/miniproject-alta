@@ -21,7 +21,6 @@ public class User implements UserDetails {
     private Long id;
     private String username;
     private String password;
-//    private String role;
     @Column(columnDefinition = "boolean default true")
     private boolean active = true;
 
@@ -56,12 +55,4 @@ public class User implements UserDetails {
     @UpdateTimestamp
     @Column(name = "updated_at")
     private Timestamp updatedAt;
-
-//    @ManyToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "id_departement", referencedColumnName = "id_departement")
-//    private Departement departement;
-//
-//    @ManyToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "id_role", referencedColumnName = "id_role")
-//    private Role role;
 }
