@@ -52,7 +52,16 @@ public class FitnoteServiceImpl implements FitnoteService {
         // set fitnote
         fitnote.setTemperature(fitnoteRequest.getTemperature());
         fitnote.setSleep_hour(fitnoteRequest.getSleep_hour());
-        fitnote.setNote(fitnoteRequest.getNote());
+//        fitnote.setNote(fitnoteRequest.getNote());
+        // logic
+        //
+        if(fitnoteRequest.getTemperature() < 36 && fitnoteRequest.getSleep_hour() < 4){
+            fitnote.setNote("Suhu mu rendah dan terlihat kurang tidur, kamu harus segera istirahat");
+        } else if (fitnoteRequest.getTemperature() > 38 && fitnoteRequest.getSleep_hour() < 4){
+            fitnote.setNote("Ternyata kamu Demam dan terlihat kurang tidur, kamu harus segera istirahat");
+        } else {
+            fitnote.setNote("Kesehatan adalah aset berharga, Selamat Berkerja !");
+        }
         // set Employee
         fitnote.setEmployee(employeeId.get());
         return fitnoteRepository.save(fitnote);

@@ -19,9 +19,6 @@ public class FitnoteController {
     @Autowired
     FitnoteServiceImpl fitnoteService;
 
-    @Autowired
-    EmployeeServiceImpl employeeService;
-
     // - GET
     @GetMapping("")
     public List<Fitnote> get(){
@@ -31,21 +28,20 @@ public class FitnoteController {
     // - Get ById
     @GetMapping("/{id}")
     public Fitnote findById(@PathVariable("id") Long id) {
-
         return fitnoteService.findFitnoteById(id);
     }
 
     // - POST
     @PostMapping("")
-    public Fitnote create(@RequestBody FitnoteRequest request)throws BadRequestException {
+    public Fitnote create(@RequestBody FitnoteRequest fitnoteRequest)throws BadRequestException {
         //validasi
-        fitnoteService.validatedFitnote(request);
+        fitnoteService.validatedFitnote(fitnoteRequest);
         //save
-        return fitnoteService.createNewFitnote(request);
+        return fitnoteService.createNewFitnote(fitnoteRequest);
     }
 
     // - PUT
-    @PutMapping("/{id}}")
+    @PutMapping("/{id}")
     public Fitnote update(@PathVariable("id") Long id,@RequestBody FitnoteRequest fitnoteRequest) {
         // validasi
         fitnoteService.validatedFitnote(fitnoteRequest);
