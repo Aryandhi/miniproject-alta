@@ -1,6 +1,6 @@
 package com.alta.miniprojectcheckpoint.security;
 
-import com.alta.miniprojectcheckpoint.model.Users;
+import com.alta.miniprojectcheckpoint.model.User;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import io.jsonwebtoken.security.SignatureException;
@@ -18,28 +18,28 @@ import java.util.Map;
 public class JwtProvider {
     private final Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
 
-    private Long expiration =1000L * 60 * 60; //ms * s * m = 1 jam;
+    private Long expiration = 1000L * 60 * 60; //ms * s * m = 1 jam
 
     public String generateToken(Authentication authentication){
-        final Users users = (Users) authentication.getPrincipal();
+        final User user = (User) authentication.getPrincipal();
 
         Date now = new Date(System.currentTimeMillis());
-        Date expireDate = new Date(now.getTime()+ expiration);
+        Date expiryDate = new Date(now.getTime() + expiration);
 
-        Map<String, Object> claims =new HashMap<>();
-        claims.put("username", users.getUsername());
+        Map<String, Object> claims = new HashMap<>();
+        claims.put("username", user.getUsername());
 
         return Jwts.builder()
-                .setId(users.getId_user().toString())
-                .setSubject(users.getUsername())
+                .setId(user.getId().toString())
+                .setSubject(user.getUsername())
                 .setClaims(claims)
                 .setIssuedAt(now)
-                .setExpiration(expireDate)
+                .setExpiration(expiryDate)
                 .signWith(key)
                 .compact();
     }
 
-    public boolean validateToken(String token){
+    public boolean validateToken(String token) {
         try{
             Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token);
             return true;
@@ -61,4 +61,5 @@ public class JwtProvider {
         Claims claims = Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token).getBody();
         return claims.get("username").toString();
     }
+
 }

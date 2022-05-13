@@ -34,6 +34,6 @@ public class Role {
     private Timestamp updatedAt;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "role")
-    private List<Users> users;
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "role")
+    private List<Employee> employee;
 }
