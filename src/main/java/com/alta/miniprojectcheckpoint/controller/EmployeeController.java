@@ -1,8 +1,6 @@
 package com.alta.miniprojectcheckpoint.controller;
 
-import com.alta.miniprojectcheckpoint.dto.DepartementRequest;
 import com.alta.miniprojectcheckpoint.dto.EmployeeRequest;
-import com.alta.miniprojectcheckpoint.dto.RoleRequest;
 import com.alta.miniprojectcheckpoint.exception.BadRequestException;
 import com.alta.miniprojectcheckpoint.model.Employee;
 import com.alta.miniprojectcheckpoint.service.impl.EmployeeServiceImpl;

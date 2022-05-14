@@ -43,6 +43,4 @@ public class Departement {
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "departement")
     private List<Employee> employee;
 
-//    public static Departement get() {
-//    }
 }

@@ -3,7 +3,6 @@ package com.alta.miniprojectcheckpoint.service;
 import com.alta.miniprojectcheckpoint.dto.FitnoteRequest;
 import com.alta.miniprojectcheckpoint.exception.BadRequestException;
 import com.alta.miniprojectcheckpoint.exception.ResourceNotFound;
-import com.alta.miniprojectcheckpoint.model.Employee;
 import com.alta.miniprojectcheckpoint.model.Fitnote;
 import org.springframework.web.bind.annotation.RequestBody;
 

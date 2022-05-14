@@ -30,13 +30,6 @@ public class DepartementService {
         return departementRepository.findAll();
     }
 
-    // GetById
-//    public Optional<Departement> getById(Integer id) throws ResourceNotFound {
-//        Optional<Departement> departement = departementRepository.findById(id);
-//        if(departement == null) throw new ResourceNotFound("Id : "+id+" tidak ditemukan");
-//        return departement;
-//    }
-
     // GetByName
     public Departement getByName(String name_departement)throws ResourceNotFound{
         Departement searchDepartementByName = departementRepository.findByName(name_departement);
