@@ -3,6 +3,7 @@ package com.alta.miniprojectcheckpoint.controller;
 import com.alta.miniprojectcheckpoint.dto.FitnoteRequest;
 import com.alta.miniprojectcheckpoint.exception.BadRequestException;
 import com.alta.miniprojectcheckpoint.model.Fitnote;
+import com.alta.miniprojectcheckpoint.repository.FitnoteRepository;
 import com.alta.miniprojectcheckpoint.service.impl.FitnoteServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

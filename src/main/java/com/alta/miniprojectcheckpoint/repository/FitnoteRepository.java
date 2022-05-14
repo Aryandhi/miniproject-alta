@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface FitnoteRepository extends JpaRepository<Fitnote, Long> {
-    @Query("SELECT d FROM Fitnote d WHERE d.note = :note")
-    Employee findByNote(@Param("note")String note);
+//    @Query("SELECT d FROM Fitnote d WHERE d.status = :status")
+//    Fitnote findByStatus(@Param("status")String status);
 }

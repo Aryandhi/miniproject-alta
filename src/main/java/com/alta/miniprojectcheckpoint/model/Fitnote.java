@@ -31,6 +31,9 @@ public class Fitnote {
     @Column(name = "note")
     private String note;
 
+    @Column(name = "status")
+    private String status;
+
     @CreationTimestamp
     @Column(name = "created_at")
     private Timestamp createdAt;
