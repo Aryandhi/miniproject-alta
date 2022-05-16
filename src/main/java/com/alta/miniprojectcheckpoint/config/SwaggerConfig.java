@@ -26,7 +26,6 @@ public class SwaggerConfig {
     }
     private ApiInfo apiInfo() {
         return new ApiInfo(
-        return new ApiInfo(
                 "Mini Project Spring Boot",
                 "API for Check Point project .",
                 "V1",
