@@ -60,7 +60,7 @@ public class FitnoteServiceImpl implements FitnoteService {
             fitnote.setStatus("Pemulihan");
             fitnote.setNote("Ternyata kamu Demam dan terlihat kurang tidur, kamu harus segera istirahat");
         } else {
-            fitnote.setStatus("Sehat");
+            fitnote.setStatus("Kamu Sehat");
             fitnote.setNote("Kesehatan adalah aset berharga, Selamat Berkerja !");
         }
         // set Employee
