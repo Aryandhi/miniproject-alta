@@ -26,11 +26,12 @@ public class SwaggerConfig {
     }
     private ApiInfo apiInfo() {
         return new ApiInfo(
+        return new ApiInfo(
                 "Mini Project Spring Boot",
-                "API for book store project .",
+                "API for Check Point project .",
                 "V1",
                 "Terms of service",
-                new Contact("Muhammad Hendro", "https://github.com/muhammadhendro", "mhendro@gmail.com"),
+                new Contact("Aryandhi", "https://github.com/Aryandhi", "aryandh.a.w@gmail.com"),
                 "License of API", "API license URL", Collections.emptyList());
     }
 }
