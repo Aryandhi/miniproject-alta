@@ -1,14 +1,17 @@
 package com.alta.miniprojectcheckpoint.model;
 
+import com.alta.miniprojectcheckpoint.domain.common.ApiResponse;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.http.HttpStatus;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -43,4 +46,6 @@ public class Departement {
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "departement")
     private List<Employee> employee;
 
+    public <T> Departement(ApiResponse<T> build, HttpStatus httpStatus) {
+    }
 }

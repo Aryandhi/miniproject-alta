@@ -1,6 +1,9 @@
 package com.alta.miniprojectcheckpoint.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.security.core.GrantedAuthority;
@@ -11,6 +14,9 @@ import java.sql.Timestamp;
 import java.util.Collection;
 
 @Data
+@SuperBuilder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "users")
 public class User implements UserDetails {

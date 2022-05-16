@@ -3,6 +3,7 @@ package com.alta.miniprojectcheckpoint.config;
 import com.alta.miniprojectcheckpoint.security.SecurityFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -14,10 +15,13 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.stereotype.Component;
 
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
+//@Component
+//@ComponentScan
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private final UserDetailsService userService;
     private final SecurityFilter securityFilter;

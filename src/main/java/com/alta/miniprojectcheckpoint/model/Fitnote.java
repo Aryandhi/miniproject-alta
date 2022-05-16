@@ -1,15 +1,19 @@
 package com.alta.miniprojectcheckpoint.model;
 
+import com.alta.miniprojectcheckpoint.domain.common.ApiResponse;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.http.HttpStatus;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Data
+@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -44,4 +48,7 @@ public class Fitnote {
     @ManyToOne
     @JoinColumn(name = "id_employee")
     private Employee employee;
+
+    public <T> Fitnote(ApiResponse<T> build, HttpStatus httpStatus) {
+    }
 }

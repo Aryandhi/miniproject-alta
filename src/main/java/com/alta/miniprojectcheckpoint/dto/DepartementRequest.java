@@ -1,14 +1,12 @@
 package com.alta.miniprojectcheckpoint.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+//@ToString
 public class DepartementRequest {
     private Integer id_departement;
     private String name_departement;

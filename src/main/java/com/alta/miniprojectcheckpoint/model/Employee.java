@@ -1,18 +1,22 @@
 package com.alta.miniprojectcheckpoint.model;
 
+import com.alta.miniprojectcheckpoint.domain.common.ApiResponse;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.http.HttpStatus;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.List;
 
 @Data
+@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
@@ -56,4 +60,6 @@ public class Employee {
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "employee")
     private List<Fitnote> fitnote;
 
+    public <T> Employee(ApiResponse<T> build, HttpStatus httpStatus) {
+    }
 }

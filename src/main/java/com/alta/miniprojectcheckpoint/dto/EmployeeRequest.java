@@ -1,15 +1,14 @@
 package com.alta.miniprojectcheckpoint.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
 public class EmployeeRequest {
+    private Long id_employee;
     private String employeeName;
     private String email;
     private String address;
